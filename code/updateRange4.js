@@ -24,7 +24,7 @@ var margin,
     maxbin_egs,
     minbin_egs;
 
-var margin = { top: 50, right: 160, bottom: 50, left: 60 };
+var margin = { top: 50, right: 20, bottom: 50, left: 60 };
 var width1 = 480 - margin.left - margin.right;
 var height1 = 260 - margin.top - margin.bottom;
 var width2 = 410 - margin.left - margin.right;

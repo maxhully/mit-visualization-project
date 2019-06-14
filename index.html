@@ -1,21 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
         <!-- Other CSS -->
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="code/slider.css">
-        <link rel="stylesheet" href="code/index_style.css">
-        
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+        />
+        <link rel="stylesheet" href="code/slider.css" />
+        <link rel="stylesheet" href="code/index_style.css" />
+
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-1.12.4.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        ></script>
         <!-- <script src="d3.min.js"></script> -->
-        <script type="text/javascript" src="https://d3js.org/d3-queue.v3.min.js"></script>
+        <script
+            type="text/javascript"
+            src="https://d3js.org/d3-queue.v3.min.js"
+        ></script>
         <script type="text/javascript" src="//d3js.org/d3.v4.min.js"></script>
         <script type="text/javascript" src="code/lib/d3.tip.v0.6.3.js"></script>
         <script type="text/javascript" src="code/buildHistograms.js"></script>
@@ -23,326 +40,437 @@
         <script type="text/javascript" src="code/additionals.js"></script>
         <!-- <script src="code/lib/d3.v3.min.js"  charset="utf-8"></script> -->
 
-        <script type="text/javascript">
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-47982219-1', 'auto');
-          ga('send', 'pageview');
-        </script>
-
-
         <title>Visualizing Gerrymandering</title>
-        
     </head>
 
     <body>
         <div id="intro">
-            <header><b>6.894 Interactive Data Visualization Final Project</b></header>
-            <div class = "vis-title">
-                <b>Visualizing Gerrymandering</b>
-        </div>
+            <header>
+                <b>6.894 Interactive Data Visualization Final Project</b>
+            </header>
+            <h1 class="vis-title">
+                Visualizing Gerrymandering
+            </h1>
 
-            <div class = "sub-title">
+            <div class="sub-title">
                 <p>
-                    Team Members: Chuyan Millie Huang, Wenwei Vicky Liu, Kim-Anh-Nhi Nguyen
+                    Team Members: Chuyan Millie Huang, Wenwei Vicky Liu,
+                    Kim-Anh-Nhi Nguyen
                 </p>
                 <p>
-                    In Collaboration with the Metric Geometry and Gerrymandering Group (MGGG)
+                    In Collaboration with the Metric Geometry and Gerrymandering
+                    Group (MGGG)
                 </p>
             </div>
         </div>
 
-        <div id = "frame1">
-            <div id = "insideFrame1">
-                <img src="images/background1_1.png" class="bgrd" alt="background">
+        <div id="frame1">
+            <div id="insideFrame1">
                 <div id="explain">
-                    <p> 
-                        <b>Gerrymandering</b> is a practice intended to establish a political advantage for a particular party of group by manipulating district boundaries.
-
-                        Historically, different metrics of gerrymandering have been presented to courts to support rationales to claim illegal gerrymandering. There is not yet a universally agreed-upon metric for evaluating splitting of municipal units with districting plans. Commonly used metrics usually focus on either <i> geographical compactness </i> (number of cuts and splits) or <i> partisan symmetry and vote efficiency </i> (efficiency gap, mean-median, number of seats won by a certain Party).
-
+                    <p>
+                        <b>Gerrymandering</b> is a practice intended to
+                        establish a political advantage for a particular party
+                        of group by manipulating district boundaries.
+                        Historically, different metrics of gerrymandering have
+                        been presented to courts to support rationales to claim
+                        illegal gerrymandering. There is not yet a universally
+                        agreed-upon metric for evaluating splitting of municipal
+                        units with districting plans. Commonly used metrics
+                        usually focus on either
+                        <i> geographical compactness </i> (number of cuts and
+                        splits) or
+                        <i> partisan symmetry and vote efficiency </i>
+                        (efficiency gap, mean-median, number of seats won by a
+                        certain Party).
                     </p>
                     <p>
-                        The wide variety in rules applied to districting problems (even in the same state) means that any single measure of gerrymandering will be insufficient/exploitable. Therefore, one approach is to generate large ensembles of districting plans to explore the underlying political geography of a given states. Rather than focusing on any particular plan, the “ensemble approach” uses simulated data to study the universe of possible plans and conduct outlier analysis by comparing to large ensembles of other feasible plans.
+                        The wide variety in rules applied to districting
+                        problems (even in the same state) means that any single
+                        measure of gerrymandering will be
+                        insufficient/exploitable. Therefore, one approach is to
+                        generate large ensembles of districting plans to explore
+                        the underlying political geography of a given states.
+                        Rather than focusing on any particular plan, the
+                        “ensemble approach” uses simulated data to study the
+                        universe of possible plans and conduct outlier analysis
+                        by comparing to large ensembles of other feasible plans.
                     </p>
 
                     <p>
-                    	<b>However, computational redistricting is not a solved problem!</b> Even though scholars have developed different statistical methods that courts can use to spot manipulative districting, there is no one coherent and consistent standard. Additionally, there is a great deal of interplay between the legal constraints and the metrics of interest and among the metrics themselves. Researchers have struggled to effectively represent the distributions of values within the high dimensional data and inspect the distributions under multiple metrics in an unbiased manner.
-
+                        <b
+                            >However, computational redistricting is not a
+                            solved problem!</b
+                        >
+                        Even though scholars have developed different
+                        statistical methods that courts can use to spot
+                        manipulative districting, there is no one coherent and
+                        consistent standard. Additionally, there is a great deal
+                        of interplay between the legal constraints and the
+                        metrics of interest and among the metrics themselves.
+                        Researchers have struggled to effectively represent the
+                        distributions of values within the high dimensional data
+                        and inspect the distributions under multiple metrics in
+                        an unbiased manner.
                     </p>
                     <p>
-                        We partner with researchers at MIT CSAIL working in the <i>Metric Geometry and Gerrymandering Group (MGGG)</i> to design an interactive data visualization system to:
+                        We partner with researchers at MIT CSAIL working in the
+                        <i>Metric Geometry and Gerrymandering Group (MGGG)</i>
+                        to design an interactive data visualization system to:
                     </p>
                     <ol>
                         <li class="introAnchor">
-                            <a href="#introFrame1">Unveil some hidden interactions between different metrics and show their impact on each other in an unbiased way</a>;
+                            <a href="#introFrame1"
+                                >Unveil some hidden interactions between
+                                different metrics and show their impact on each
+                                other in an unbiased way</a
+                            >;
                         </li>
                         <li class="introAnchor">
-                            <a href="#introFrame2">Demystify some common false beliefs</a>;
+                            <a href="#introFrame2"
+                                >Demystify some common false beliefs</a
+                            >;
                         </li>
                         <li class="introAnchor">
-                            <a href="#introFrame3">Propose a novel way of looking at gerrymandering for policy makers and the general public in an easily digestible manner</a>.
+                            <a href="#introFrame3"
+                                >Propose a novel way of looking at
+                                gerrymandering for policy makers and the general
+                                public in an easily digestible manner</a
+                            >.
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
 
-            
-
-
         <div class="introFrame" id="introFrame1">
-                <h3><a href="#explain">Interactive plan metric distributions</a></h3>
+            <h3>
+                <a href="#explain">Interactive plan metric distributions</a>
+            </h3>
         </div>
-        
 
-        <div id = "frame2">
-            <div id = "left2">
-
+        <div id="frame2">
+            <div id="left2">
                 <p>
-                    Choose a particular metric you are interested in and choose what you consider as a reasonable range of values using the sliding bar filtering function. Observe what this does to the distributions of other metrics!
+                    Choose a particular metric you are interested in and choose
+                    what you consider as a reasonable range of values using the
+                    sliding bar filtering function. Observe what this does to
+                    the distributions of other metrics!
                 </p>
 
-                <p id="metricText"><b>Choose a metric to filter on</b></p>
-                    <br>
-                    <div class="side-filter">
+                <h6><strong>Choose a metric to filter on</strong></h6>
+                <div class="side-filter">
                     <div class="filterButtons">
-                            <input type="radio" name="metric_selection" id="check_selection_nb_cuts" checked="checked" onclick="startHere(path)">
-                            <label class="radioMetric">
-                                 Number of cuts
-                            </label>
-                            <br>
-                            
-                            <input type="radio" name="metric_selection" id="check_selection_p_votes" onclick="startHere(path)">
-                            <label class="radioMetric">
-                                Democratic vote shares for the most democratic district
-                            </label>
-                            <br>
-                            <input type="radio" name="metric_selection" id="check_selection_mms" onclick="startHere(path)">
-                            <label class="radioMetric">
-                                Mean-Median
-                            </label>
-                            <br>
-                            
-                            <input type="radio" name="metric_selection" id="check_selection_hmss" onclick="startHere(path)">
-                            <label class="radioMetric">
-                                Number of Democratic seats
-                            </label>
-                            <br>
+                        <input
+                            type="radio"
+                            name="metric_selection"
+                            id="check_selection_nb_cuts"
+                            checked="checked"
+                            onclick="startHere(path)"
+                        />
+                        <label class="radioMetric">
+                            Number of cuts
+                        </label>
+                        <br />
 
-                            
-                            <input type="radio" name="metric_selection" id="check_selection_egs"  onclick="startHere(path)">
-                            <label class="radioMetric">
-                                 Efficiency gap
-                            </label>
+                        <input
+                            type="radio"
+                            name="metric_selection"
+                            id="check_selection_p_votes"
+                            onclick="startHere(path)"
+                        />
+                        <label class="radioMetric">
+                            Democratic vote shares for the most democratic
+                            district
+                        </label>
+                        <br />
+                        <input
+                            type="radio"
+                            name="metric_selection"
+                            id="check_selection_mms"
+                            onclick="startHere(path)"
+                        />
+                        <label class="radioMetric">
+                            Mean-Median
+                        </label>
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="metric_selection"
+                            id="check_selection_hmss"
+                            onclick="startHere(path)"
+                        />
+                        <label class="radioMetric">
+                            Number of Democratic seats
+                        </label>
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="metric_selection"
+                            id="check_selection_egs"
+                            onclick="startHere(path)"
+                        />
+                        <label class="radioMetric">
+                            Efficiency gap
+                        </label>
                     </div>
                 </div>
             </div>
 
-        
-            <div id = "right2">
-                <p>To start with, please choose a state to analyze: Virgina or Pennsylvania</p>
+            <div id="right2">
+                <p>
+                    To start with, please choose a state to analyze: Virgina or
+                    Pennsylvania
+                </p>
 
                 <select id="chooseData" onchange="changeDataPath()">
-                    <option value="0" selected >Virgina (11 districts)</option>
+                    <option value="0" selected>Virgina (11 districts)</option>
                     <option value="1">Pennsylvania (18 districts)</option>
                 </select>
-                <br>              
+                <br />
 
-
-                <div class="vaContainer1">          
-                
+                <div class="vaContainer1">
                     <div class="column1" id="colcut">
-                            <p class="title_hist_cut"><b>Number of cuts</b></p>
-                            <svg id="nb_cuts"> 
-                                <br>
-                            </svg>
+                        <p class="title_hist_cut"><b>Number of cuts</b></p>
+                        <svg id="nb_cuts"></svg>
                     </div>
                     <div class="column1">
-                            <p class="title_hist"><b>Democratic Votes (in %) for the Most Democratic District</b></p>
-                            <svg id="p_votes">
-                                <br>
-                            </svg>
+                        <p class="title_hist">
+                            <b
+                                >Democratic Votes (in %) for the Most Democratic
+                                District</b
+                            >
+                        </p>
+                        <svg id="p_votes"></svg>
                     </div>
                 </div>
                 <div class="vaContainer1">
                     <div class="column">
-                            <p class="title_hist"><b>Mean-Median</b></p>
-                            <svg id="mms">
-                                <br>
-                            </svg>
-                    </div>
-                    <div class="column">   
-                            <p class="title_hist"><b>Number of Democratic seats</b></p>
-                            <svg id="hmss">
-                                <br>
-                            </svg>
+                        <p class="title_hist"><b>Mean-Median</b></p>
+                        <svg id="mms"></svg>
                     </div>
                     <div class="column">
-                            <p class="title_hist"><b>Efficiency Gap (in %)</b></p>
-                            <svg id = "egs">
-                            </svg>
+                        <p class="title_hist">
+                            <b>Number of Democratic seats</b>
+                        </p>
+                        <svg id="hmss"></svg>
+                    </div>
+                    <div class="column">
+                        <p class="title_hist"><b>Efficiency Gap (in %)</b></p>
+                        <svg id="egs"></svg>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div id = "frame3">
-        <script type="text/javascript">
-            var countPress = 0;
-            var textReveal = document.getElementById("textToHide");
-            function showText(){
-                countPress +=1;
-                if (countPress%2 == 1 ){
-                    textReveal.style.visibility="visible";
-                } else {
-                    textReveal.style.visibility="hidden";
+        <div id="frame3">
+            <script type="text/javascript">
+                var countPress = 0;
+                var textReveal = document.getElementById("textToHide");
+                function showText() {
+                    countPress += 1;
+                    if (countPress % 2 == 1) {
+                        textReveal.style.visibility = "visible";
+                    } else {
+                        textReveal.style.visibility = "hidden";
+                    }
                 }
-            };
-            
-        </script>
+            </script>
         </div>
 
         <!-- Part 2: Given 3 plan maps and let user click one to show plan's 6 metrics on corresponding global distribution -->
         <div class="introFrame" id="introFrame2">
-            <h3><a href="#explain"></a>
+            <h3>
+                <a href="#explain"></a>
                 Example Maps
             </h3>
         </div>
-        <div id = "frame4">
-            <div id = "left4">
+        <div id="frame4">
+            <div id="left4">
                 <p>
-                    Click on a map to see its corresponding metrics compared to the global distributions of these metrics. How much of a outlier are they?
+                    Click on a map to see its corresponding metrics compared to
+                    the global distributions of these metrics. How much of a
+                    outlier are they?
                 </p>
             </div>
 
-            
-            <div id = "right4">
+            <div id="right4">
                 <div id="maps">
                     <div class="map_indiv">
                         <p>Map 1</p>
-                        <img src="images/map10000.png" onclick="map_highlight(1)" alt="map1">
+                        <img
+                            src="images/map10000.png"
+                            onclick="map_highlight(1)"
+                            alt="map1"
+                        />
                     </div>
                     <div class="map_indiv">
                         <p>Map 2</p>
-                        <img src="images/map12000.png" onclick="map_highlight(2)" alt="map2">
+                        <img
+                            src="images/map12000.png"
+                            onclick="map_highlight(2)"
+                            alt="map2"
+                        />
                     </div>
                     <div class="map_indiv">
                         <p>Map 3</p>
-                        <img src="images/map14000.png" onclick="map_highlight(3)" alt="map3">
+                        <img
+                            src="images/map14000.png"
+                            onclick="map_highlight(3)"
+                            alt="map3"
+                        />
                     </div>
                     <svg id="legendMaps">
-                        <circle cx="50" cy="10" r="5" style="fill: red; opacity: 0.6;"/>
-                        <text x="60" y="14">Republican win</text> 
-                        <circle cx="200" cy="10" r="5" style="fill: blue; opacity: 0.6;"/>
-                        <text x="210" y="14">Democratic win</text> 
-
+                        <circle
+                            cx="50"
+                            cy="10"
+                            r="5"
+                            style="fill: red; opacity: 0.6;"
+                        />
+                        <text x="60" y="14">Republican win</text>
+                        <circle
+                            cx="200"
+                            cy="10"
+                            r="5"
+                            style="fill: blue; opacity: 0.6;"
+                        />
+                        <text x="210" y="14">Democratic win</text>
                     </svg>
                 </div>
 
                 <div class="vaContainer2">
                     <div class="column1" id="colcut2">
                         <p class="title_hist_cut2"><b>Number of Cuts</b></p>
-                        <svg id="cuts2"> 
-                            <br>
-                        </svg>
+                        <svg id="cuts2"></svg>
                     </div>
                     <div class="column1">
-                        <p class="title_hist"><b>Democratic Votes for the Most Democratic District (in %)</b></p>
-                        <svg id="p_votes2"> 
-                            <br>
-                        </svg>
+                        <p class="title_hist">
+                            <b
+                                >Democratic Votes for the Most Democratic
+                                District (in %)</b
+                            >
+                        </p>
+                        <svg id="p_votes2"></svg>
                     </div>
                 </div>
                 <div class="vaContainer2">
                     <div class="column">
                         <p class="title_hist"><b>Mean-Median</b></p>
-                        <svg id="mms2"> 
-                            <br>
-                        </svg>
+                        <svg id="mms2"></svg>
                     </div>
                     <div class="column">
-                        <p class="title_hist"><b>Number of Democratic Seats</b></p>
-                        <svg id="hmss2"> 
-                            <br>
-                        </svg>
+                        <p class="title_hist">
+                            <b>Number of Democratic Seats</b>
+                        </p>
+                        <svg id="hmss2"></svg>
                     </div>
 
                     <div class="column">
                         <p class="title_hist"><b>Efficiency Gap (in %)</b></p>
-                        <svg id="egs2"> 
-                            <br>
-                        </svg>
+                        <svg id="egs2"></svg>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="introFrame" id="introFrame3">
-            <h3><a href="#explain">
-        </a>Differences Between State Distributions</h3>
-            
-        </div>
-        <div id = "frame5">
-            <div id = "left5">
-                <p>
-                    This is why you should not compare metrics across states - because of differences in inherent geopolitical characteristics for each state.
 
-                </p> 
+        <div class="introFrame" id="introFrame3">
+            <h3>
+                <a href="#explain"> </a>Differences Between State Distributions
+            </h3>
+        </div>
+        <div id="frame5">
+            <div id="left5">
+                <p>
+                    This is why you should not compare metrics across states -
+                    because of differences in inherent geopolitical
+                    characteristics for each state.
+                </p>
             </div>
 
-            <div id = "right5">
+            <div id="right5">
                 <div id="right52">
                     <select id="picDD">
                         <option value="0" selected>Mean-Median</option>
                         <option value="1">Efficiency Gap</option>
-                        <option value="2">Number of Seats won by Democratic</option>
+                        <option value="2"
+                            >Number of Seats won by Democratic</option
+                        >
                         <option value="3">Number of Cuts</option>
-                        <option value="4">% of Democratic Votes in the Most Democratic District</option>
+                        <option value="4"
+                            >% of Democratic Votes in the Most Democratic
+                            District</option
+                        >
                     </select>
                 </div>
-                
-                <img class="bottomImg" src="images/compare/mms.png" alt="distribution comparison">
-                
+
+                <img
+                    class="bottomImg"
+                    src="images/compare/mms.png"
+                    alt="distribution comparison"
+                />
+
                 <script type="text/javascript">
                     var imageList = [
-                                "images/compare/mms.png",
-                                "images/compare/egs.png",
-                                "images/compare/hmss.png",
-                                "images/compare/nb_cuts.png",
-                                "images/compare/vote_share.png"];
+                        "images/compare/mms.png",
+                        "images/compare/egs.png",
+                        "images/compare/hmss.png",
+                        "images/compare/nb_cuts.png",
+                        "images/compare/vote_share.png"
+                    ];
 
-                    $('#picDD').change(function () {
-                        var val = parseInt($('#picDD').val());
-                        $('.bottomImg').attr("src",imageList[val]);
+                    $("#picDD").change(function() {
+                        var val = parseInt($("#picDD").val());
+                        $(".bottomImg").attr("src", imageList[val]);
                     });
                 </script>
             </div>
         </div>
-        
+
         <div id="tks">
             <p>Thank you to:</p>
             <ul>
-                <li><a href="https://arvindsatya.com/">Arvind Satyanarayan</a>, our professor</li>
-                <li><a href="http://people.csail.mit.edu/soya/">Soya Park</a>, our teaching assistant</li>
-                <li><a href="https://people.csail.mit.edu/jsolomon/">Justin Solomon</a> from the Metric Geometry and Gerrymandering Group</li>
-                <li><a href="https://people.csail.mit.edu/ddeford/">Daryl DeFord</a> from the Metric Geometry and Gerrymandering Group</li>
+                <li>
+                    <a href="https://arvindsatya.com/">Arvind Satyanarayan</a>,
+                    our professor
+                </li>
+                <li>
+                    <a href="http://people.csail.mit.edu/soya/">Soya Park</a>,
+                    our teaching assistant
+                </li>
+                <li>
+                    <a href="https://people.csail.mit.edu/jsolomon/"
+                        >Justin Solomon</a
+                    >
+                    from the Metric Geometry and Gerrymandering Group
+                </li>
+                <li>
+                    <a href="https://people.csail.mit.edu/ddeford/"
+                        >Daryl DeFord</a
+                    >
+                    from the Metric Geometry and Gerrymandering Group
+                </li>
             </ul>
         </div>
 
         <div id="links">
-            <div id="data">Data Sources:
-                <a href="https://github.com/drdeford/VA_Viz">Districting plans metrics from MGGG (for VA)</a>,
-                <a href="https://github.com/mggg/GerryChain">GerryChain (simulation that generated districting plans)</a></div>
+            <div id="data">
+                Data Sources:
+                <a href="https://github.com/drdeford/VA_Viz"
+                    >Districting plans metrics from MGGG (for VA)</a
+                >,
+                <a href="https://github.com/mggg/GerryChain"
+                    >GerryChain (simulation that generated districting plans)</a
+                >
+            </div>
             <div id="lib">Libraries: D3.js, jQuery</div>
         </div>
 
-        
         <footer>
-            <p>&copy; Copyright 2019 &bull; Chuyan Millie Huang, Wenwei Vicky Liu, Kim-Anh-Nhi Nguyen </p>
+            <p>
+                &copy; Copyright 2019 &bull; Chuyan Millie Huang, Wenwei Vicky
+                Liu, Kim-Anh-Nhi Nguyen
+            </p>
         </footer>
     </body>
 </html>
